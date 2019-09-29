@@ -19,19 +19,30 @@ namespace ITBC_Labs
 
         static void GetNumbers()
         {
-            string answer;
+            string answer = "1";
+            bool error;//Переключатель, отвечающий за наличие ошибки при вводе коэффицентов
             do
             {
-                int[] rates = new int[3];
+                error = false;//Изначальное состояние
+                int[] rates = new int[3];//Для хранения коэффицентов
                 for (int i = 0; i < 3; i++)
                 {
                     Console.WriteLine("Введите коэффицент " + Convert.ToChar(65 + i) + ": ");
-                    rates[i] = Convert.ToInt32(Console.ReadLine());
+                    try {
+                        rates[i] = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (FormatException)
+                    {//Если возникла ошибка ввода, то выбрасывается исключение, переключатель...переключается, и внешний цикл запускается заново
+                        Console.WriteLine("Ошибка при вводе коэффицента, введите коэффиценты заново");
+                        error = true;
+                        break;
+                    }
                 }
+                if (error) continue;
                 Solutions(rates);
                 Console.WriteLine("Хотите продолжить? (1, если хотите)");
                 answer = Console.ReadLine();
-            } while (answer == "1");//
+            } while (answer == "1");
         }
 
         static void Solutions(int[] rates)

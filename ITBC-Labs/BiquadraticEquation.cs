@@ -166,6 +166,6 @@ namespace ITBC_Labs
                 Console.WriteLine(this.solution[i]);
             }
             Console.ResetColor();
-        }//
+        }
     }
 }
