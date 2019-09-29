@@ -31,7 +31,7 @@ namespace ITBC_Labs
                 Solutions(rates);
                 Console.WriteLine("Хотите продолжить? (1, если хотите)");
                 answer = Console.ReadLine();
-            } while (answer == "1");
+            } while (answer == "1");//
         }
 
         static void Solutions(int[] rates)
