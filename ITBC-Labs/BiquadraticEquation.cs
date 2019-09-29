@@ -20,7 +20,6 @@ namespace ITBC_Labs
         {
             if (this.CheckForLackOfSolutions())//Проверка на наличие решений
             {//Если их нет
-                Console.WriteLine("Данное уравнение не имеет действительных решений.");
                 this.solution = null;
             } else {//Если они есть
                 if (this.A == 0 || this.B == 0 || this.C == 0) this.IncompleteEquation();
@@ -31,9 +30,9 @@ namespace ITBC_Labs
 
         private bool CheckForLackOfSolutions()//Возвращает истину, если решений уравнения нет
         {
-            if (this.A >= 0 && this.B >= 0 && this.C >= 0) return true;
-            if (this.A <= 0 && this.B <= 0 && this.C <= 0) return true;
-            //Если все коэффиценты имеют одинаковый знак (в обоих случаях допускается ноль), то действительных решений у такого биквадратного уравнения не существует из-за чётности степеней аргумента
+            if (this.A > 0 && this.B > 0 && this.C > 0) return true;
+            if (this.A < 0 && this.B < 0 && this.C < 0) return true;
+            //Если все коэффиценты имеют одинаковый знак, то действительных решений у такого биквадратного уравнения не существует из-за чётности степеней аргумента
             if (this.A == 0 && this.B == 0 && this.C != 0) return true;
             //1 уравнение, 0 переменных => решений нет
             return false;
