@@ -24,12 +24,12 @@ namespace Lab1
             do
             {
                 error = false;//Изначальное состояние
-                int[] rates = new int[3];//Для хранения коэффицентов
+                double [] rates = new double[3];//Для хранения коэффицентов
                 for (int i = 0; i < 3; i++)
                 {
                     Console.WriteLine("Введите коэффицент " + Convert.ToChar(65 + i) + ": ");
                     try {
-                        rates[i] = Convert.ToInt32(Console.ReadLine());
+                        rates[i] = Convert.ToDouble(Console.ReadLine());
                     }
                     catch (FormatException)
                     {//Если возникла ошибка ввода, то выбрасывается исключение, переключатель...переключается, и внешний цикл запускается заново
@@ -45,7 +45,7 @@ namespace Lab1
             } while (answer == "1");
         }
 
-        static void Solutions(int[] rates)
+        static void Solutions(double[] rates)
         {
             BiquadraticEquation equation = new BiquadraticEquation(rates);
             equation.SolveEquation();

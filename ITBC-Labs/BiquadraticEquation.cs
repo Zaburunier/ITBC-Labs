@@ -8,9 +8,9 @@ namespace Lab1
 {
     class BiquadraticEquation
     {
-        private int A, B, C;
+        private double A, B, C;
         private double[] solution;
-        public BiquadraticEquation(int[] values)
+        public BiquadraticEquation(double[] values)
         {
             this.A = values[0];
             this.B = values[1];
@@ -143,7 +143,7 @@ namespace Lab1
         }
 
 
-        private float Discriminant()
+        private double Discriminant()
         {
             return this.B * this.B - 4 * this.A * this.C;
         }
