@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E8E677E5-6567-4E18-9F48-C9A368A3C793}</ProjectGuid>
+    <ProjectGuid>{6C9BEBA1-CE0C-4E7E-88F6-C472554A5706}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lab4</RootNamespace>
-    <AssemblyName>Lab4</AssemblyName>
+    <RootNamespace>Lab5</RootNamespace>
+    <AssemblyName>Lab5</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Lab4Form.cs">
+    <Compile Include="Lab5Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Lab4Form.Designer.cs">
-      <DependentUpon>Lab4Form.cs</DependentUpon>
+    <Compile Include="Lab5Form.Designer.cs">
+      <DependentUpon>Lab5Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Lab4Form.resx">
-      <DependentUpon>Lab4Form.cs</DependentUpon>
+    <EmbeddedResource Include="Lab5Form.resx">
+      <DependentUpon>Lab5Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DistanceLibrary%28Lab5%29\DistanceLibrary%28Lab5%29.csproj">
+      <Project>{215776b8-f934-4797-b1db-7e891ac707c0}</Project>
+      <Name>DistanceLibrary%28Lab5%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

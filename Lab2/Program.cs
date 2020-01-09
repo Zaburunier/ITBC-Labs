@@ -10,7 +10,7 @@ namespace Lab2
     {
         static void Main(string[] args)
         {
-            Console.Title = "Забурунов Леонид, РТ5-31Б";
+            Console.Title = "Лабораторная работа №2. Забурунов Леонид, РТ5-31-2019";
             char ending;
             do
             {

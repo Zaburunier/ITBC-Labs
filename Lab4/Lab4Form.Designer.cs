@@ -1,71 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
 
 namespace Lab4
 {
-    public partial class Form1 : Form
+    public partial class Lab4Form
     {
 
-        public Form1()
-        {
-            InitializeComponent();
 
-        }
+        #region Код, автоматически созданный конструктором форм Windows
 
-        List<string> wordList = new List<string>();
-        private void ChooseSystemFile_Click(object sender, EventArgs e) //Процедура для выбора файла и его чтения
+        /// <summary>
+        /// Обязательная переменная конструктора.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Освободить все используемые ресурсы.
+        /// </summary>
+        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        protected override void Dispose(bool disposing)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Text files|*.txt"; //Ограничение доступных расширений
-            if (fileDialog.ShowDialog() == DialogResult.OK) //Открытие диалогового окна
+            if (disposing && (components != null))
             {
-                System.Diagnostics.Stopwatch timeForLoad = new System.Diagnostics.Stopwatch();
-                System.Diagnostics.Stopwatch timeForSave = new System.Diagnostics.Stopwatch();
-                timeForLoad.Start();
-                timeForSave.Start();
-                string fileText = System.IO.File.ReadAllText(fileDialog.FileName); //Считываем содержимое файла
-                timeForLoad.Stop();
-                char[] dividerSymbolsArray = new char[] { ' ', '.', ',', '!', '?', '/', '\t', '\n' }; //Задаём символы как критерии для разделения текста на слова
-                string[] textArray = fileText.Split(dividerSymbolsArray); //Разбиваем на слова
-                foreach (string word in textArray)
-                {
-                    string temp = word.Trim(); //?
-                    if (wordList.Contains(temp) != true) //Если строки нет в списке, то добавляем её как новый член
-                        wordList.Add(temp);
-
-                }
-                timeForSave.Stop();
-                LoadTimeText.Text = timeForLoad.Elapsed.ToString();
-                SaveTimeText.Text = timeForSave.Elapsed.ToString();
-                FilenameLabel.Text = fileDialog.FileName;
-            } else { //Если файл не выбран, то сообщаем об ошибке
-                MessageBox.Show("Ошибка; необходимо выбрать файл!");
+                components.Dispose();
             }
-        }
-
-        private void SearchDesiredWord_Click(object sender, EventArgs e) //Процедура для поиска заданного слова после нажатия кнопки
-        {
-            string desiredWord = this.DesiredWord.Text.Trim(); //Искомое слово
-            if (!string.IsNullOrWhiteSpace(desiredWord) && wordList.Count > 0) //Если строка и файл не пустые
-            {
-                System.Diagnostics.Stopwatch timeForSearch = new System.Diagnostics.Stopwatch();
-                timeForSearch.Start();
-                this.WordFoundList.BeginUpdate();
-                this.WordFoundList.Items.Clear();
-                foreach (string temp in wordList) //Проход по каждому слову из файла
-                {
-                    if (temp.Contains(desiredWord)) //Если текущий элемент массива содержит искомое слово, заданное в форме
-                    {
-                        this.WordFoundList.Items.Add(temp);
-                    }
-                }
-                this.WordFoundList.EndUpdate();
-                timeForSearch.Stop();
-                this.SearchTimeText.Text = timeForSearch.Elapsed.ToString(); //Вывод времени поиска на экран
-            } else {
-                MessageBox.Show("Не выбран текстовый файл или заданная для поиска строка пуста!");
-            }
+            base.Dispose(disposing);
         }
 
         private void InitializeComponent()
@@ -250,17 +212,27 @@ namespace Lab4
             this.Controls.Add(this.SearchDesiredWord);
             this.Controls.Add(this.ChooseSystemFile);
             this.Name = "Form1";
-            this.Text = "Забурунов РТ5-31Б, Лаб.4";
+            this.Text = "Лабораторная работа №4. Забурунов Леонид, РТ5-31-2019";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+        #endregion
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        private Button ChooseSystemFile;
+        private Button SearchDesiredWord;
+        private TextBox DesiredWord;
+        private ListBox WordFoundList;
+        private TextBox SearchTimeText;
+        private Label SearchTimeLabel;
+        private Label SearchWordLabel;
+        private Label WordListLabel;
+        private TextBox FilenameLabel;
+        private Label LoadTimeLabel;
+        private TextBox LoadTimeText;
+        private Label SaveTimeLabel;
+        private TextBox SaveTimeText;
     }
 }
+

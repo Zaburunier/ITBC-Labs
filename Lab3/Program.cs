@@ -12,7 +12,7 @@ namespace Lab3
     {
         static void Main(string[] args)
         {
-            Console.Title = "Забурунов Леонид, РТ5-31Б";
+            Console.Title = "Лабораторная работа №3. Забурунов Леонид, РТ5-31-2019";
             ArrayList ArrayListShapes = new ArrayList();
             List<Shape> Shapes = new List<Shape>();
             ArrayListProcessing(ArrayListShapes);
