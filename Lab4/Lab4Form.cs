@@ -10,7 +10,6 @@ namespace Lab4
         public Lab4Form()
         {
             InitializeComponent();
-
         }
 
         List<string> wordList = new List<string>();
